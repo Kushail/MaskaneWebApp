@@ -10,4 +10,13 @@ class Product(models.Model):
     is_in_stock = models.BooleanField()
 
     def __str__(self):
+        """Return string representation of product"""
+        return self.name
+
+    def get_full_name(self):
+        """Return full name"""
+        return self.name
+
+    def get_short_name(self):
+        """Return short name"""
         return self.name
