@@ -6,7 +6,7 @@ class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = models.Product
-        fields = ('name', 'price', 'grade', 'min_quantity', 'is_in_stock')
+        fields = '__all__'
     
     def create(self, validated_data):
         """Handle creating product"""
@@ -18,7 +18,3 @@ class ProductSerializer(serializers.ModelSerializer):
             is_in_stock=validated_data['is_in_stock'],
         )
         return product
-    
-    def update(self, instance, validated_data):
-        """Handle updating product"""
-        return super().update(instance, validated_data)

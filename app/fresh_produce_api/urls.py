@@ -1,12 +1,12 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
 from fresh_produce_api import views
-
-router = DefaultRouter()
-router.register('product-viewset', views.ProductViewset, basename='product-viewset')
+from rest_framework.routers import DefaultRouter
 
 app_name = 'Masikane'
 
+router = DefaultRouter()
+router.register('products', views.ProductViewSet, basename='product-viewset')
+
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]

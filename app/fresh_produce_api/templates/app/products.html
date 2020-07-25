@@ -1,0 +1,41 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Minimum Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for product in products %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.grade}}</td>
+                <td>{{product.min_quantity}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+</body>
+<body>
+  <div class="form-group">
+      {% crispy form %}
+  </div>
+  <label>Total cost: R</label>
+  {{ total_cost }}
+</body>
+</html>
